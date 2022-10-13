@@ -3,7 +3,7 @@ About r-rmsnumpress
 
 Home: https://CRAN.R-project.org/package=RMSNumpress
 
-Package license: BSD-3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmsnumpress-feedstock/blob/main/LICENSE.txt)
 
