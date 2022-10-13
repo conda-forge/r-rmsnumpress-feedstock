@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -30,17 +30,14 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-rcpp >=1.0.3
-    - r-testthat >=1.0.0
-
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-rcpp >=1.0.3
-    - r-testthat >=1.0.0
 
 test:
   commands:
@@ -49,7 +46,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=RMSNumpress
-  license: BSD-3-clause
+  license: BSD-3-Clause
   summary: '''Rcpp'' bindings to the native C++ implementation of MS Numpress, that provides
     two compression schemes for numeric data from mass spectrometers. The library provides
     implementations of 3 different algorithms, 1 designed to compress first order smooth
@@ -58,10 +55,10 @@ about:
     (Teleman et al., (2014) <doi:10.1074/mcp.O114.037879>) for more details.'
   license_family: BSD
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_3_clause
     - LICENSE
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - singjc
-    - conda-forge/r 
